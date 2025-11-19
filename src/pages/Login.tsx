@@ -144,11 +144,10 @@ const Login: React.FC = () => {
 };
 
 const StyledWrapper = styled.div`
-  background-color: #00001f;
+  background: linear-gradient(135deg, #1f293a 0%, #2c4766 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   .login-section {
     flex: 1;
@@ -156,6 +155,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
   }
 
   .container {
@@ -166,13 +166,12 @@ const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    overflow: hidden;
   }
 
   @media (max-width: 450px) {
     .container {
-      width: 360px;
-      height: 360px;
+      width: 350px;
+      height: 350px;
     }
   }
 
@@ -182,67 +181,101 @@ const StyledWrapper = styled.div`
     width: 32px;
     height: 6px;
     background: #2c4766;
-    border-radius: 80px;
+    border-radius: 8px;
     transform-origin: 200px;
     animation: blink 3s linear infinite;
   }
 
-  /* Per-index transforms and delays moved to CSS nth-child rules to avoid inline styles */
-  .container span:nth-child(1)  { transform: rotate(calc(0 * 7.2deg));  animation-delay: calc(0 * 0.06s); }
-  .container span:nth-child(2)  { transform: rotate(calc(1 * 7.2deg));  animation-delay: calc(1 * 0.06s); }
-  .container span:nth-child(3)  { transform: rotate(calc(2 * 7.2deg));  animation-delay: calc(2 * 0.06s); }
-  .container span:nth-child(4)  { transform: rotate(calc(3 * 7.2deg));  animation-delay: calc(3 * 0.06s); }
-  .container span:nth-child(5)  { transform: rotate(calc(4 * 7.2deg));  animation-delay: calc(4 * 0.06s); }
-  .container span:nth-child(6)  { transform: rotate(calc(5 * 7.2deg));  animation-delay: calc(5 * 0.06s); }
-  .container span:nth-child(7)  { transform: rotate(calc(6 * 7.2deg));  animation-delay: calc(6 * 0.06s); }
-  .container span:nth-child(8)  { transform: rotate(calc(7 * 7.2deg));  animation-delay: calc(7 * 0.06s); }
-  .container span:nth-child(9)  { transform: rotate(calc(8 * 7.2deg));  animation-delay: calc(8 * 0.06s); }
-  .container span:nth-child(10) { transform: rotate(calc(9 * 7.2deg));  animation-delay: calc(9 * 0.06s); }
-  .container span:nth-child(11) { transform: rotate(calc(10 * 7.2deg)); animation-delay: calc(10 * 0.06s); }
-  .container span:nth-child(12) { transform: rotate(calc(11 * 7.2deg)); animation-delay: calc(11 * 0.06s); }
-  .container span:nth-child(13) { transform: rotate(calc(12 * 7.2deg)); animation-delay: calc(12 * 0.06s); }
-  .container span:nth-child(14) { transform: rotate(calc(13 * 7.2deg)); animation-delay: calc(13 * 0.06s); }
-  .container span:nth-child(15) { transform: rotate(calc(14 * 7.2deg)); animation-delay: calc(14 * 0.06s); }
-  .container span:nth-child(16) { transform: rotate(calc(15 * 7.2deg)); animation-delay: calc(15 * 0.06s); }
-  .container span:nth-child(17) { transform: rotate(calc(16 * 7.2deg)); animation-delay: calc(16 * 0.06s); }
-  .container span:nth-child(18) { transform: rotate(calc(17 * 7.2deg)); animation-delay: calc(17 * 0.06s); }
-  .container span:nth-child(19) { transform: rotate(calc(18 * 7.2deg)); animation-delay: calc(18 * 0.06s); }
-  .container span:nth-child(20) { transform: rotate(calc(19 * 7.2deg)); animation-delay: calc(19 * 0.06s); }
-  .container span:nth-child(21) { transform: rotate(calc(20 * 7.2deg)); animation-delay: calc(20 * 0.06s); }
-  .container span:nth-child(22) { transform: rotate(calc(21
+  @media (max-width: 450px) {
+    .container span {
+      transform-origin: 175px;
+    }
+  }
+
+  .container span:nth-child(1) { transform: rotate(0deg); animation-delay: 0s; }
+  .container span:nth-child(2) { transform: rotate(7.2deg); animation-delay: 0.06s; }
+  .container span:nth-child(3) { transform: rotate(14.4deg); animation-delay: 0.12s; }
+  .container span:nth-child(4) { transform: rotate(21.6deg); animation-delay: 0.18s; }
+  .container span:nth-child(5) { transform: rotate(28.8deg); animation-delay: 0.24s; }
+  .container span:nth-child(6) { transform: rotate(36deg); animation-delay: 0.3s; }
+  .container span:nth-child(7) { transform: rotate(43.2deg); animation-delay: 0.36s; }
+  .container span:nth-child(8) { transform: rotate(50.4deg); animation-delay: 0.42s; }
+  .container span:nth-child(9) { transform: rotate(57.6deg); animation-delay: 0.48s; }
+  .container span:nth-child(10) { transform: rotate(64.8deg); animation-delay: 0.54s; }
+  .container span:nth-child(11) { transform: rotate(72deg); animation-delay: 0.6s; }
+  .container span:nth-child(12) { transform: rotate(79.2deg); animation-delay: 0.66s; }
+  .container span:nth-child(13) { transform: rotate(86.4deg); animation-delay: 0.72s; }
+  .container span:nth-child(14) { transform: rotate(93.6deg); animation-delay: 0.78s; }
+  .container span:nth-child(15) { transform: rotate(100.8deg); animation-delay: 0.84s; }
+  .container span:nth-child(16) { transform: rotate(108deg); animation-delay: 0.9s; }
+  .container span:nth-child(17) { transform: rotate(115.2deg); animation-delay: 0.96s; }
+  .container span:nth-child(18) { transform: rotate(122.4deg); animation-delay: 1.02s; }
+  .container span:nth-child(19) { transform: rotate(129.6deg); animation-delay: 1.08s; }
+  .container span:nth-child(20) { transform: rotate(136.8deg); animation-delay: 1.14s; }
+  .container span:nth-child(21) { transform: rotate(144deg); animation-delay: 1.2s; }
+  .container span:nth-child(22) { transform: rotate(151.2deg); animation-delay: 1.26s; }
+  .container span:nth-child(23) { transform: rotate(158.4deg); animation-delay: 1.32s; }
+  .container span:nth-child(24) { transform: rotate(165.6deg); animation-delay: 1.38s; }
+  .container span:nth-child(25) { transform: rotate(172.8deg); animation-delay: 1.44s; }
+  .container span:nth-child(26) { transform: rotate(180deg); animation-delay: 1.5s; }
+  .container span:nth-child(27) { transform: rotate(187.2deg); animation-delay: 1.56s; }
+  .container span:nth-child(28) { transform: rotate(194.4deg); animation-delay: 1.62s; }
+  .container span:nth-child(29) { transform: rotate(201.6deg); animation-delay: 1.68s; }
+  .container span:nth-child(30) { transform: rotate(208.8deg); animation-delay: 1.74s; }
+  .container span:nth-child(31) { transform: rotate(216deg); animation-delay: 1.8s; }
+  .container span:nth-child(32) { transform: rotate(223.2deg); animation-delay: 1.86s; }
+  .container span:nth-child(33) { transform: rotate(230.4deg); animation-delay: 1.92s; }
+  .container span:nth-child(34) { transform: rotate(237.6deg); animation-delay: 1.98s; }
+  .container span:nth-child(35) { transform: rotate(244.8deg); animation-delay: 2.04s; }
+  .container span:nth-child(36) { transform: rotate(252deg); animation-delay: 2.1s; }
+  .container span:nth-child(37) { transform: rotate(259.2deg); animation-delay: 2.16s; }
+  .container span:nth-child(38) { transform: rotate(266.4deg); animation-delay: 2.22s; }
+  .container span:nth-child(39) { transform: rotate(273.6deg); animation-delay: 2.28s; }
+  .container span:nth-child(40) { transform: rotate(280.8deg); animation-delay: 2.34s; }
+  .container span:nth-child(41) { transform: rotate(288deg); animation-delay: 2.4s; }
+  .container span:nth-child(42) { transform: rotate(295.2deg); animation-delay: 2.46s; }
+  .container span:nth-child(43) { transform: rotate(302.4deg); animation-delay: 2.52s; }
+  .container span:nth-child(44) { transform: rotate(309.6deg); animation-delay: 2.58s; }
+  .container span:nth-child(45) { transform: rotate(316.8deg); animation-delay: 2.64s; }
+  .container span:nth-child(46) { transform: rotate(324deg); animation-delay: 2.7s; }
+  .container span:nth-child(47) { transform: rotate(331.2deg); animation-delay: 2.76s; }
+  .container span:nth-child(48) { transform: rotate(338.4deg); animation-delay: 2.82s; }
+  .container span:nth-child(49) { transform: rotate(345.6deg); animation-delay: 2.88s; }
+  .container span:nth-child(50) { transform: rotate(352.8deg); animation-delay: 2.94s; }
+
   @keyframes blink {
-    0% {
-      background: #0ef;
-    }
-    25% {
-      background: #2c4766;
-    }
+    0% { background: #0ef; }
+    25% { background: #2c4766; }
   }
 
   .login-box {
     position: absolute;
     width: 80%;
     max-width: 300px;
-    z-index: 1;
-    padding: 20px;
+    z-index: 10;
+    padding: 30px;
     border-radius: 20px;
+    background: rgba(31, 41, 58, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 238, 255, 0.3);
+    display: flex;
+    flex-direction: column;
   }
 
   form {
     width: 100%;
-    padding: 0 10px;
   }
 
   h2 {
     font-size: 1.8em;
     color: #0ef;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .input-box {
     position: relative;
-    margin: 15px 0;
+    margin: 20px 0;
   }
 
   input {
@@ -254,16 +287,16 @@ const StyledWrapper = styled.div`
     border-radius: 40px;
     font-size: 1em;
     color: #fff;
-    padding: 0 15px;
-    transition: 0.5s ease;
+    padding: 0 20px;
+    transition: 0.3s ease;
   }
 
   input:focus {
     border-color: #0ef;
   }
 
-  input[value]:not([value=""]) ~ label,
-  input:focus ~ label {
+  input:focus ~ label,
+  input:valid ~ label {
     top: -10px;
     font-size: 0.8em;
     background: #1f293a;
@@ -274,23 +307,25 @@ const StyledWrapper = styled.div`
   label {
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 20px;
     transform: translateY(-50%);
     font-size: 1em;
     pointer-events: none;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
     color: #fff;
   }
 
   .forgot-pass {
-    margin: -10px 0 10px;
+    margin: 10px 0;
     text-align: center;
   }
 
-  .forgot-pass a {
+  .forgot-pass button {
+    background: none;
+    border: none;
     font-size: 0.85em;
-    color: #fff;
-    text-decoration: none;
+    color: #0ef;
+    cursor: pointer;
   }
 
   .btn {
@@ -304,15 +339,20 @@ const StyledWrapper = styled.div`
     font-size: 1em;
     color: #1f293a;
     font-weight: 600;
+    margin: 20px 0;
+    transition: 0.3s ease;
   }
 
-  .btn[disabled] {
+  .btn:hover:not(:disabled) {
+    background: #00d4ff;
+  }
+
+  .btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
   }
 
   .signup-link {
-    margin: 10px 0;
     text-align: center;
   }
 
@@ -326,7 +366,7 @@ const StyledWrapper = styled.div`
   .msg {
     text-align: center;
     color: #cdeaff;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
     font-size: 0.9em;
   }
 `;
