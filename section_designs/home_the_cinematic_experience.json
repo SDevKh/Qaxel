@@ -1,0 +1,14 @@
+{
+    "description": "Full-bleed immersive video hero. The background video plays in a continuous, muted loop of black-tie event highlights. Centered text content features a massive H1 in bold sans-serif, with the word 'EXCELLENCE' highlighted in Champagne Gold italic serif. A primary CTA button sits below, using a 'shimmer' effect that moves across the gold border every 5 seconds. A scroll-down indicator (thin gold line) pulses at the bottom center.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/button.tsx"
+    ]
+}

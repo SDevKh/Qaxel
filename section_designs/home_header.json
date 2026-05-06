@@ -1,0 +1,15 @@
+{
+    "description": "A minimalist, fixed-position header. Initially, it features a solid Deep Charcoal (bg-background) background with high-contrast Crisp White navigation links. Upon scrolling 20px, it transitions to a bg-background/80 with a heavy backdrop-blur-lg effect. The logo is centered on mobile but left-aligned on desktop, balanced by a 'Book Now' CTA on the right. Navigation links use a subtle 'underline-from-center' hover effect in Champagne Gold.",
+    "wordpress_providers": {
+        "contains_navmenu": true,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/navigation-menu.tsx",
+        "ui/button.tsx"
+    ]
+}

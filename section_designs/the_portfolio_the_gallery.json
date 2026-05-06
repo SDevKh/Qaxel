@@ -1,0 +1,15 @@
+{
+    "description": "A sprawling, full-width masonry grid that extends to the edges of the screen. It uses a mix of static images and 5-second looping 'living photos' (cinemagraphs). A filter bar at the top allows users to toggle between 'Corporate,' 'Wedding,' and 'Gala' without a page reload, using smooth opacity transitions for the images.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/tabs.tsx",
+        "ui/aspect-ratio.tsx"
+    ]
+}

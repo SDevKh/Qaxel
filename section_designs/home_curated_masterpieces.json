@@ -1,0 +1,15 @@
+{
+    "description": "An editorial-style masonry gallery. Images vary in aspect ratio (4:5, 1:1, 16:9) to create a rhythmic, non-linear flow. Each image is separated by a 48px 'white space' gap that is actually Deep Charcoal. On hover, images subtly scale up by 2% and a Champagne Gold overlay reveals the project name and year in minimalist typography. No borders on images; sharp corners only.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/aspect-ratio.tsx",
+        "ui/dialog.tsx"
+    ]
+}

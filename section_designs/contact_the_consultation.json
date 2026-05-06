@@ -1,0 +1,14 @@
+{
+    "description": "A dramatic hero with a split-screen design. Left side is a static, high-contrast image of a luxury invitation. Right side is a Deep Charcoal block with the heading 'Your Legacy Starts Here' in Champagne Gold and a brief invitation to book.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/button.tsx"
+    ]
+}

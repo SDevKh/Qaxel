@@ -1,0 +1,15 @@
+{
+    "description": "A clean, high-end testimonial slider. One testimonial is visible at a time. The quote text is large (2.5rem) and centered, using Cormorant Garamond italic. Below the quote, the client's name and title appear in small-caps Inter. Navigation is handled by two minimalist 'Prev/Next' arrows in Gold. The background is a stark Crisp White with charcoal text to provide a visual 'break' from the dark theme.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/carousel.tsx",
+        "ui/avatar.tsx"
+    ]
+}

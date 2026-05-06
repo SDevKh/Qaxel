@@ -1,0 +1,16 @@
+{
+    "description": "A multi-column footer in Deep Charcoal. Left column features the logo and a short 'New-Age Orchestration' bio. Middle columns house organized navigation links. The right column features a minimalist newsletter signup\u2014just a single line for email with a 'Join the Elite' button. Social icons are minimalist circles at the very bottom.",
+    "wordpress_providers": {
+        "contains_navmenu": true,
+        "contains_blog_posts": false,
+        "contains_form": true,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/navigation-menu.tsx",
+        "ui/input.tsx",
+        "ui/button.tsx"
+    ]
+}

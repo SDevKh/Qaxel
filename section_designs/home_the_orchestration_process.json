@@ -1,0 +1,15 @@
+{
+    "description": "A horizontal scroll section. As the user scrolls vertically, the timeline moves horizontally. Each stage (Concept, Curation, Execution) is represented by a large numeric digit (01, 02, 03) in 10% opacity white, with the actual stage description layered on top. A Champagne Gold line connects the stages, growing as the user progresses.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/progress.tsx",
+        "ui/scroll-area.tsx"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "description": "A full-width section featuring a monochromatic (dark) embedded map. Overlaid on the map is a small, glassmorphic card containing the studio address, phone number, and a 'Get Directions' link. The card uses backdrop-blur-md and a thin gold border.",
+    "wordpress_providers": {
+        "contains_navmenu": false,
+        "contains_blog_posts": false,
+        "contains_form": false,
+        "contains_ecommerce_products": false,
+        "contains_ecommerce_categories": false,
+        "contains_ecommerce_tags": false
+    },
+    "components": [
+        "ui/card.tsx"
+    ]
+}
