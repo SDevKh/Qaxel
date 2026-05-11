@@ -485,7 +485,7 @@ const AppLayout: React.FC = () => {
                 price={product.price}
                 colors={product.colors}
                 onAddToCart={() => addToCart(product)}
-                onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
+                onClick={() => navigate(`/product/${product.slug}`, { state: { product } })}
               />
             ))}
           </div>
@@ -518,7 +518,7 @@ const AppLayout: React.FC = () => {
               price={product.price}
               colors={product.colors}
               onAddToCart={() => addToCart(product)}
-              onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
+              onClick={() => navigate(`/product/${product.slug}`, { state: { product } })}
             />
           ))}
         </div>
