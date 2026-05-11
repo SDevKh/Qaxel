@@ -91,7 +91,7 @@ const Checkout: React.FC = () => {
 
       function openRazorpay() {
         const options = {
-          key: 'rzp_test_RgRusv8kOZaquo', amount: Math.round((total || 128.0) * 100), currency: 'INR',
+          key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_RgRusv8kOZaquo', amount: Math.round((total || 128.0) * 100), currency: 'INR',
           name: 'Pardesi Naari', description: `Order Payment - ₹${(total || 128.0).toFixed(2)}`,
           handler: async function (response: any) {
             try {
