@@ -3,7 +3,7 @@ import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { PRODUCTS } from '../components/AppLayout';
-import ReviewsSection from '../components/ReviewsSection';
+import ReviewsSection, { initialReviews } from '../components/ReviewsSection';
 import { PageNav } from '../components/PageNav';
 import { Footer } from '../components/Footer';
 
@@ -217,6 +217,28 @@ const ProductDetailPage: React.FC = () => {
     const idx = gallery.findIndex(src => src === selectedImage);
     if (idx >= 0) scrollToThumbIndex(idx);
   }, [selectedImage, product]);
+
+  useEffect(() => {
+    if (!product) return;
+
+    const key = `reviews_${product.name || 'global'}`;
+    const localRaw = localStorage.getItem(key);
+    let localReviews: any[] = [];
+    try { if (localRaw) localReviews = JSON.parse(localRaw); } catch (e) {}
+
+    const filteredInitial = (product.reviewIds && product.reviewIds.length > 0)
+      ? initialReviews.filter(r => product.reviewIds!.includes(r.id))
+      : [];
+
+    const allProductReviews = [...localReviews, ...filteredInitial];
+    const total = allProductReviews.length;
+    const avg = total ? Math.round((allProductReviews.reduce((s, r) => s + r.rating, 0) / total) * 10) / 10 : 0;
+
+    // Only update if values actually changed to avoid infinite loops
+    if (product.rating !== avg || product.reviewsCount !== total) {
+      setProduct(prev => prev ? { ...prev, rating: avg, reviewsCount: total } : null);
+    }
+  }, [id, product?.name, product?.reviewIds]);
 
   if (loading) return <div className="min-h-screen bg-[#FFF8F5] flex items-center justify-center text-[#B76E79]">Loading product details...</div>;
   if (!product) return <div className="min-h-screen bg-[#FFF8F5] flex items-center justify-center text-red-500">Product not found.</div>;

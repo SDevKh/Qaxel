@@ -11,14 +11,14 @@ type Review = {
   helpful?: number;
 };
 
-const initialReviews: Review[] = [
+export const initialReviews: Review[] = [
   {
     id: 'r1',
     name: 'Ruchi Gupta.',
     verified: true,
     title: 'Love The Colors',
     body: 'Colors are very vibrant and attractive. My little one is very happy with this product.',
-    rating: 5,
+    rating: 4,
     createdAt: new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString(),
     helpful: 2,
   },
@@ -107,7 +107,7 @@ const ReviewsSection: React.FC<{ productTitle?: string; reviewIds?: string[] }> 
     } catch (e) {
       console.error('Failed to parse local reviews', e);
     }
-    
+
     setReviews([...localReviews, ...filteredInitialReviews]);
   }, [filteredInitialReviews, productTitle]);
 
@@ -137,8 +137,8 @@ const ReviewsSection: React.FC<{ productTitle?: string; reviewIds?: string[] }> 
     let localReviews: Review[] = [];
     try {
       if (localRaw) localReviews = JSON.parse(localRaw);
-    } catch (e) {}
-    
+    } catch (e) { }
+
     localStorage.setItem(key, JSON.stringify([newR, ...localReviews]));
 
     // Update state
