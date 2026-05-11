@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -13,9 +13,22 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+// Initialize Firebase safely
+let app;
+try {
+  if (import.meta.env.VITE_FIREBASE_API_KEY) {
+    app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+  } else {
+    console.error("Firebase VITE_FIREBASE_API_KEY is missing. Please add it to your Vercel Environment Variables.");
+  }
+} catch (error) {
+  console.error("Firebase initialization failed:", error);
+}
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+// Export services even if app fails, to prevent crash during import, 
+// though they will be non-functional if app is null.
+export const auth = app ? getAuth(app) : ({} as any);
+export const db = app ? getFirestore(app) : ({} as any);
+export const analytics = app && typeof window !== 'undefined' ? getAnalytics(app) : null;
+
 export default app;
