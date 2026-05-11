@@ -32,11 +32,13 @@ export interface Product {
   colors?: string[];
   size?: string[];
   reviewIds?: string[];
+  slug: string;
 }
 
 export const PRODUCTS: Product[] = [
   {
     id: 1,
+    slug: 'black-ombre-lycra-skirt',
     image: '/img/skirt1.jpg',
     galleryImages: [
       '/img/skirt1-2.jpg',
@@ -62,6 +64,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 2,
+    slug: 'elegant-maxi-skirt',
     image: '/img/skirt2.jpg',
     galleryImages: [
       '/img/skirt2.jpg',
@@ -80,6 +83,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 3,
+    slug: 'butterfly-pleated-two-piece-set',
     image: '/img/skirt3.jpg',
     galleryImages: [
       '/img/skirt3.jpg',
@@ -112,6 +116,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 4,
+    slug: 'luxury-satin-skirt',
     image: '/img/skirt4.jpg',
     galleryImages: [
       '/img/skirt4.jpg',
@@ -196,7 +201,7 @@ const AppLayout: React.FC = () => {
   };
 
   const addToCart = (product: Product) => {
-    navigate(`/product/${product.id}`, { state: { product } });
+    navigate(`/product/${product.slug}`, { state: { product } });
   };
 
   const updateQuantity = (id: number, quantity: number) => {

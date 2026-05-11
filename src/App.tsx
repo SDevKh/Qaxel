@@ -47,7 +47,7 @@ const App = () => (
             <Route path="/cancellation" element={<Cancellation />} />
             <Route path="/FAQ" element={<FAQ />} />
             <Route path="/discalimer" element={<Discalimer />} />
-            <Route path="product/:id" element={<ProductDetails />} />
+            <Route path="/product/:slug" element={<ProductDetails />} />
             <Route path="/account-settings" element={<AccountSettings />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<NotFound />} />

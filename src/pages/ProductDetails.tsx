@@ -21,6 +21,7 @@ interface ProductImage {
 
 interface Product {
   id: string;
+  slug: string;
   name: string;
   tagline: string;
   description: string;
@@ -40,6 +41,7 @@ interface Product {
 
 const PRODUCT_DATA: Product = {
   id: '1',
+  slug: '',
   name: 'Product',
   tagline: '',
   description: '',
@@ -81,7 +83,7 @@ const FeatureBadge: React.FC<{ label: string }> = ({ label }) => (
 );
 
 const ProductDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string>('');
@@ -105,6 +107,7 @@ const ProductDetailPage: React.FC = () => {
 
         const normalized = {
           id: String(navProduct.id ?? navProduct._id ?? navProduct.productId ?? '1'),
+          slug: navProduct.slug ?? '',
           name: navProduct.title ?? navProduct.name ?? '',
           tagline: navProduct.tagline ?? '',
           description: navProduct.description ?? navProduct.tagline ?? '',
@@ -129,8 +132,8 @@ const ProductDetailPage: React.FC = () => {
         return;
       }
 
-      if (id) {
-        const found = (PRODUCTS as any[]).find(p => String(p.id) === String(id));
+      if (slug) {
+        const found = (PRODUCTS as any[]).find(p => p.slug === slug);
         if (found) {
           const galleryNorm = Array.isArray(found.galleryImages)
             ? found.galleryImages.map((g: any) =>
@@ -142,6 +145,7 @@ const ProductDetailPage: React.FC = () => {
 
           const normalized = {
             id: String(found.id),
+            slug: found.slug,
             name: found.title ?? found.name ?? 'Product',
             tagline: found.tagline ?? found.description ?? '',
             description: found.description ?? found.tagline ?? '',
@@ -174,7 +178,7 @@ const ProductDetailPage: React.FC = () => {
     };
 
     fetchProduct();
-  }, [id, location]);
+  }, [slug, location]);
 
   useEffect(() => {
     if (product) {
@@ -219,26 +223,26 @@ const ProductDetailPage: React.FC = () => {
   }, [selectedImage, product]);
 
   useEffect(() => {
-    if (!product) return;
+    if (product) {
+      const key = `reviews_${product.name || 'global'}`;
+      const localRaw = localStorage.getItem(key);
+      let localReviews: any[] = [];
+      try { if (localRaw) localReviews = JSON.parse(localRaw); } catch (e) {}
 
-    const key = `reviews_${product.name || 'global'}`;
-    const localRaw = localStorage.getItem(key);
-    let localReviews: any[] = [];
-    try { if (localRaw) localReviews = JSON.parse(localRaw); } catch (e) {}
+      const filteredInitial = (product.reviewIds && product.reviewIds.length > 0)
+        ? initialReviews.filter(r => product.reviewIds!.includes(r.id))
+        : [];
 
-    const filteredInitial = (product.reviewIds && product.reviewIds.length > 0)
-      ? initialReviews.filter(r => product.reviewIds!.includes(r.id))
-      : [];
+      const allProductReviews = [...localReviews, ...filteredInitial];
+      const total = allProductReviews.length;
+      const avg = total ? Math.round((allProductReviews.reduce((s, r) => s + r.rating, 0) / total) * 10) / 10 : 0;
 
-    const allProductReviews = [...localReviews, ...filteredInitial];
-    const total = allProductReviews.length;
-    const avg = total ? Math.round((allProductReviews.reduce((s, r) => s + r.rating, 0) / total) * 10) / 10 : 0;
-
-    // Only update if values actually changed to avoid infinite loops
-    if (product.rating !== avg || product.reviewsCount !== total) {
-      setProduct(prev => prev ? { ...prev, rating: avg, reviewsCount: total } : null);
+      // Only update if values actually changed to avoid infinite loops
+      if (product.rating !== avg || product.reviewsCount !== total) {
+        setProduct(prev => prev ? { ...prev, rating: avg, reviewsCount: total } : null);
+      }
     }
-  }, [id, product?.name, product?.reviewIds]);
+  }, [slug, product?.name, product?.reviewIds]);
 
   if (loading) return <div className="min-h-screen bg-[#FFF8F5] flex items-center justify-center text-[#B76E79]">Loading product details...</div>;
   if (!product) return <div className="min-h-screen bg-[#FFF8F5] flex items-center justify-center text-red-500">Product not found.</div>;
