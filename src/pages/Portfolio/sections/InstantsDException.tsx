@@ -101,7 +101,7 @@ export default function InstantsDException() {
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-auto object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 grayscale hover:grayscale-0"
+                className="w-full h-auto object-cover transition-transform duration-1000 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 grayscale hover:grayscale-0"
                 loading="lazy"
               />
 

@@ -62,7 +62,7 @@ function ScenarioBlock({ scenario, index }: { scenario: typeof scenarios[0]; ind
             <img
               src={scenario.image}
               alt={scenario.imageAlt}
-              className="w-full h-full object-cover object-center transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+              className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-out group-hover:scale-105"
               loading="lazy"
             />
             {/* Subtle gradient overlay */}
