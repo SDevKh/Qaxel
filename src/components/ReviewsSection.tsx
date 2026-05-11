@@ -90,17 +90,26 @@ const ReviewsSection: React.FC<{ productTitle?: string; reviewIds?: string[] }> 
     return initialReviews.filter(r => reviewIds.includes(r.id));
   }, [reviewIds]);
 
-  const [reviews, setReviews] = useState<Review[]>(filteredInitialReviews);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [showWrite, setShowWrite] = useState(false);
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [rating, setRating] = useState(5);
 
-  // Update reviews whenever the product (and its reviewIds) changes
+  // Load reviews from initial list + localStorage
   React.useEffect(() => {
-    setReviews(filteredInitialReviews);
-  }, [filteredInitialReviews]);
+    const key = `reviews_${productTitle || 'global'}`;
+    const localRaw = localStorage.getItem(key);
+    let localReviews: Review[] = [];
+    try {
+      if (localRaw) localReviews = JSON.parse(localRaw);
+    } catch (e) {
+      console.error('Failed to parse local reviews', e);
+    }
+    
+    setReviews([...localReviews, ...filteredInitialReviews]);
+  }, [filteredInitialReviews, productTitle]);
 
   const stats = useMemo(() => {
     const total = reviews.length;
@@ -121,6 +130,18 @@ const ReviewsSection: React.FC<{ productTitle?: string; reviewIds?: string[] }> 
       createdAt: new Date().toISOString(),
       helpful: 0,
     };
+
+    // Save to localStorage
+    const key = `reviews_${productTitle || 'global'}`;
+    const localRaw = localStorage.getItem(key);
+    let localReviews: Review[] = [];
+    try {
+      if (localRaw) localReviews = JSON.parse(localRaw);
+    } catch (e) {}
+    
+    localStorage.setItem(key, JSON.stringify([newR, ...localReviews]));
+
+    // Update state
     setReviews((s) => [newR, ...s]);
     setShowWrite(false);
     setName(''); setTitle(''); setBody(''); setRating(5);
