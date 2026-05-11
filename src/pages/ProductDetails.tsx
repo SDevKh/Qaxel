@@ -35,6 +35,7 @@ interface Product {
   features: string[];
   sizes: string[];
   colors?: string[];
+  reviewIds?: string[];
 }
 
 const PRODUCT_DATA: Product = {
@@ -118,6 +119,7 @@ const ProductDetailPage: React.FC = () => {
           features: navProduct.features ?? [],
           colors: navProduct.colors ?? [],
           sizes: navProduct.size ?? navProduct.sizes ?? ['S', 'M', 'L', 'XL'],
+          reviewIds: navProduct.reviewIds ?? [],
         } as Product;
         setProduct(normalized);
         setSelectedImage(normalized.mainImage ?? normalized.galleryImages[0]?.src ?? '/img/placeholder.png');
@@ -154,6 +156,7 @@ const ProductDetailPage: React.FC = () => {
             features: found.features ?? [],
             colors: found.colors ?? [],
             sizes: found.size ?? found.sizes ?? ['S', 'M', 'L', 'XL'],
+            reviewIds: found.reviewIds ?? [],
           } as Product;
           setProduct(normalized);
           setSelectedImage(normalized.mainImage ?? normalized.galleryImages[0]?.src ?? '/img/placeholder.png');
@@ -352,7 +355,7 @@ const ProductDetailPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <ReviewsSection productTitle={product.name} />
+      <ReviewsSection productTitle={product.name} reviewIds={product.reviewIds} />
       <Footer />
     </div>
   );

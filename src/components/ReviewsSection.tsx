@@ -14,20 +14,60 @@ type Review = {
 const initialReviews: Review[] = [
   {
     id: 'r1',
-    name: 'Staci W.',
+    name: 'Ruchi Gupta.',
     verified: true,
-    title: 'Love The Taste',
-    body: 'Berry Gummies — Really enjoyed these. Taste is pleasant and easy to take daily.',
+    title: 'Love The Colors',
+    body: 'Colors are very vibrant and attractive. My little one is very happy with this product.',
     rating: 5,
     createdAt: new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString(),
     helpful: 2,
   },
   {
     id: 'r2',
-    name: 'Sammmmmmmmm',
+    name: 'Anamika M.',
     verified: false,
-    title: '5 Stars',
-    body: 'I loved the product!',
+    title: 'Very Good Product!',
+    body: 'Very good product! My little one loves it. Would recommend to other parents too.',
+    rating: 5,
+    createdAt: new Date(Date.now() - 9 * 24 * 3600 * 1000).toISOString(),
+    helpful: 0,
+  },
+  {
+    id: 'r3',
+    name: 'Kavya S.',
+    verified: false,
+    title: 'Very Good Product!',
+    body: 'Very good product! My little one loves it. Would recommend to other parents too.',
+    rating: 5,
+    createdAt: new Date(Date.now() - 9 * 24 * 3600 * 1000).toISOString(),
+    helpful: 0,
+  },
+  {
+    id: 'r4',
+    name: 'Devika Singh',
+    verified: false,
+    title: 'Worth the money',
+    body: 'Excellent product! The quality is very good highly recommend.',
+    rating: 5,
+    createdAt: new Date(Date.now() - 9 * 24 * 3600 * 1000).toISOString(),
+    helpful: 0,
+  },
+  {
+    id: 'r5',
+    name: 'Megha T.',
+    verified: false,
+    title: 'Nice product for summers too.',
+    body: 'Very soft and comfortable.',
+    rating: 5,
+    createdAt: new Date(Date.now() - 9 * 24 * 3600 * 1000).toISOString(),
+    helpful: 0,
+  },
+  {
+    id: 'r6',
+    name: 'Suhasini R.',
+    verified: false,
+    title: 'Perfect summer pick',
+    body: 'Super soft, colors are very vibrant.',
     rating: 5,
     createdAt: new Date(Date.now() - 9 * 24 * 3600 * 1000).toISOString(),
     helpful: 0,
@@ -44,13 +84,23 @@ const Stars: React.FC<{ value: number }> = ({ value }) => (
   </div>
 );
 
-const ReviewsSection: React.FC<{ productTitle?: string }> = ({ productTitle }) => {
-  const [reviews, setReviews] = useState<Review[]>(initialReviews);
+const ReviewsSection: React.FC<{ productTitle?: string; reviewIds?: string[] }> = ({ productTitle, reviewIds }) => {
+  const filteredInitialReviews = useMemo(() => {
+    if (!reviewIds || reviewIds.length === 0) return [];
+    return initialReviews.filter(r => reviewIds.includes(r.id));
+  }, [reviewIds]);
+
+  const [reviews, setReviews] = useState<Review[]>(filteredInitialReviews);
   const [showWrite, setShowWrite] = useState(false);
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [rating, setRating] = useState(5);
+
+  // Update reviews whenever the product (and its reviewIds) changes
+  React.useEffect(() => {
+    setReviews(filteredInitialReviews);
+  }, [filteredInitialReviews]);
 
   const stats = useMemo(() => {
     const total = reviews.length;

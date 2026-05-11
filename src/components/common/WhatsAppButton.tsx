@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const WHATSAPP_NUMBER = "917426809415"; // +91 7426 809 415 (no + or spaces)
+const WHATSAPP_NUMBER = "917426809415";
 const WHATSAPP_MESSAGE = "Hello! I'm interested in your event planning services.";
 
 export default function WhatsAppButton() {

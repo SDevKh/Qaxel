@@ -20,7 +20,7 @@ interface CartItem {
   size?: string;
 }
 
-export interface Product{
+export interface Product {
   id: number;
   image: string;
   mainImage?: string;
@@ -31,6 +31,7 @@ export interface Product{
   details: string;
   colors?: string[];
   size?: string[];
+  reviewIds?: string[];
 }
 
 export const PRODUCTS: Product[] = [
@@ -38,14 +39,15 @@ export const PRODUCTS: Product[] = [
     id: 1,
     image: '/img/skirt1.jpg',
     galleryImages: [
-     '/img/skirt1-2.jpg',
-     '/img/skirt1.jpg'
-   ],
+      '/img/skirt1-2.jpg',
+      '/img/skirt1.jpg'
+    ],
     title: 'Black ombre lycraElegant',
-    price: 2000,
+    price: 799,
     colors: [''],
     size: ['Free Size'],
     description: 'Black ombre lycra skirt for women knee length',
+    reviewIds: ['r1', 'r2'],
     details: `Stylish ombré gradient from grey to black
               Elegant floral cutout detailing along the hem, Structured yet flowy lira fabric, Comfortable knee-length silhouette, Pleated design adds movement and shape, Versatile for casual and semi-dressy occasions
               Occasion- Casual Wear, Day outings, Semi-formal gatherings, Brunch, cafe meetings, Smart casual office styling
@@ -63,14 +65,15 @@ export const PRODUCTS: Product[] = [
     image: '/img/skirt2.jpg',
     galleryImages: [
       '/img/skirt2.jpg',
-     '/img/skirt2-2.jpg',
-     '/img/skirt2-3.jpg',
-     '/img/skirt2.jpg'
-   ],
+      '/img/skirt2-2.jpg',
+      '/img/skirt2-3.jpg',
+      '/img/skirt2.jpg'
+    ],
     title: 'Elegant maxi',
-    price: 2000,
+    price: 1199,
     colors: [''],
     size: ['Free Size'],
+    reviewIds: ['r3', 'r4'],
     description: 'Elegant maxi women skirt trapezoidal pattern full length.',
     details: ` Its timeless design makes it the perfect choice for many festive occasions. Made of high-quality materials, this dress has a smooth and pleasant-to-touch fabric that is not only comfortable and stretchable but also looks luxurious. 
     Flattering High-Waist Fit: Designed to enhance the waistline and complement a wide range of body shapes. Unique Statement Piece: A standout addition to any wardrobe, perfect for women who love artistic and modern fashion. This is a dress that will always make you feel special and elegant.`
@@ -80,19 +83,20 @@ export const PRODUCTS: Product[] = [
     image: '/img/skirt3.jpg',
     galleryImages: [
       '/img/skirt3.jpg',
-     '/img/skirt3-1.jpg',
-     '/img/skirt3-2.jpg',
-     '/img/skirt3-4.jpg',
-     '/img/skirt3-5.jpg',
-     '/img/skirt5.jpg',
-     '/img/skirt5-1.jpg',
-     '/img/skirt5-2.jpg',
-     '/img/skirt5-3.jpg'
-   ],
+      '/img/skirt3-1.jpg',
+      '/img/skirt3-2.jpg',
+      '/img/skirt3-4.jpg',
+      '/img/skirt3-5.jpg',
+      '/img/skirt5.jpg',
+      '/img/skirt5-1.jpg',
+      '/img/skirt5-2.jpg',
+      '/img/skirt5-3.jpg'
+    ],
     title: 'Butterly pleated two piece set',
-    price: 2000,
+    price: 1899,
     colors: ['#8C0C2F', '#D2B48C'],
     size: ['M-(30)', 'XXL(38)'],
+    reviewIds: ['r5', 'r6'],
     description: 'Butterly pleated two piece set magic fabric for women/ skirt set/ long skirt ',
     details: `Step into elegance with this stunning vibrant pink long-sleeve two peice set designed to make you stand out at any event. Featuring a high-neck stretchable and soft stretch knit fabric, and a beautifully detailed 3D ruffle waist design, this cord-set blends modern style with artistic charm.
       Key Features
@@ -111,13 +115,13 @@ export const PRODUCTS: Product[] = [
     image: '/img/skirt4.jpg',
     galleryImages: [
       '/img/skirt4.jpg',
-     '/img/skirt4-1.jpg',
-     '/img/skirt4-2.jpg',
-     '/img/skirt4-3.jpg',
-     '/img/skirt4-4.jpg'
-   ],
+      '/img/skirt4-1.jpg',
+      '/img/skirt4-2.jpg',
+      '/img/skirt4-3.jpg',
+      '/img/skirt4-4.jpg'
+    ],
     title: 'Luxury black and white satin skirt',
-    price: 2000,
+    price: 699,
     colors: [''],
     size: ['Free Size'],
     description: 'Luxury black and white satin skirt with pearl embellishments for women for every ocassion.',
@@ -199,7 +203,7 @@ const AppLayout: React.FC = () => {
     if (quantity <= 0) {
       setCartItems(prev => prev.filter(item => item.id !== id));
     } else {
-      setCartItems(prev => prev.map(item => 
+      setCartItems(prev => prev.map(item =>
         item.id === id ? { ...item, quantity } : item
       ));
     }
@@ -335,7 +339,7 @@ const AppLayout: React.FC = () => {
               <button onClick={() => scrollToSection('new-arrivals')} className="text-[#4A2C3D] hover:text-[#B76E79] font-medium transition-colors text-sm">Shop</button>
               <Link to="/about" className="text-[#4A2C3D] hover:text-[#B76E79] font-medium transition-colors text-sm">About</Link>
             </div>
-            <button 
+            <button
               onClick={() => setCartOpen(true)}
               className="relative text-[#4A2C3D] hover:text-[#B76E79] transition-colors"
             >
@@ -385,46 +389,49 @@ const AppLayout: React.FC = () => {
             </button>
           </div>
         </div>
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-[#F5C6D0]/30 p-4 bg-white">
-            <a href="#home" className="block py-3 text-[#4A2C3D] hover:text-[#B76E79] font-medium">Home</a>
-            <button onClick={() => { scrollToSection('categories'); setMobileMenuOpen(false); }} className="block py-3 text-[#4A2C3D] hover:text-[#B76E79] font-medium w-full text-left">Categories</button>
-            <button onClick={() => { scrollToSection('new-arrivals'); setMobileMenuOpen(false); }} className="block py-3 text-[#4A2C3D] hover:text-[#B76E79] font-medium w-full text-left">Shop</button>
-            <Link to="/about" className="block py-3 text-[#4A2C3D] hover:text-[#B76E79] font-medium">About</Link>
+        {/* Mobile Menu with transition */}
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-[#F5C6D0]/30 ${mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="p-4 space-y-1">
+            <a href="#home" className="block py-2.5 px-4 text-[#4A2C3D] hover:bg-[#FFF0F3] hover:text-[#B76E79] font-medium rounded-xl transition-all">Home</a>
+            <button onClick={() => { scrollToSection('categories'); setMobileMenuOpen(false); }} className="block py-2.5 px-4 text-[#4A2C3D] hover:bg-[#FFF0F3] hover:text-[#B76E79] font-medium w-full text-left rounded-xl transition-all">Categories</button>
+            <button onClick={() => { scrollToSection('new-arrivals'); setMobileMenuOpen(false); }} className="block py-2.5 px-4 text-[#4A2C3D] hover:bg-[#FFF0F3] hover:text-[#B76E79] font-medium w-full text-left rounded-xl transition-all">Shop</button>
+            <Link to="/about" className="block py-2.5 px-4 text-[#4A2C3D] hover:bg-[#FFF0F3] hover:text-[#B76E79] font-medium rounded-xl transition-all">About</Link>
           </div>
-        )}
+        </div>
       </nav>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#FFF0F3] via-[#FFF8F5] to-[#FFF0E8]">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center px-6 py-16 md:py-20">
-          <div className="text-center md:text-left z-10">
-            <p className="text-xs uppercase tracking-[0.4em] mb-4 text-[#B76E79] font-bold">For Her · By Her · With Her</p>
-            <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight text-[#4A2C3D]">
-              Elegance In <br /><span className="italic bg-gradient-to-r from-[#B76E79] to-[#D4A574] bg-clip-text text-transparent">Every Fold.</span>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center px-6 py-12 md:py-20 lg:py-28">
+          <div className="text-center md:text-left z-10 flex-1 md:pr-10">
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] mb-4 text-[#B76E79] font-bold">For Her · By Her · With Her</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif mb-6 leading-tight text-[#4A2C3D]">
+              Elegance In <br className="hidden sm:block" /><span className="italic bg-gradient-to-r from-[#B76E79] to-[#D4A574] bg-clip-text text-transparent">Every Fold.</span>
             </h2>
-            <p className="text-[#8B5E6B] mt-4 mb-8 leading-relaxed text-base max-w-lg mx-auto md:mx-0">
+            <p className="text-[#8B5E6B] mt-4 mb-8 leading-relaxed text-sm md:text-base max-w-lg mx-auto md:mx-0">
               Welcome to Pardesi Naari — your destination for traditional silhouettes redefined for the modern age. From Pakistani suits to elegant Anarkalis, discover outfits that turn every occasion into a timeless memory.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button 
+              <button
                 onClick={() => scrollToSection('categories')}
-                className="bg-gradient-to-r from-[#B76E79] to-[#D4A574] text-white px-8 py-3.5 rounded-full font-bold tracking-wider hover:shadow-xl transition-all hover:scale-105 text-sm"
+                className="bg-gradient-to-r from-[#B76E79] to-[#D4A574] text-white px-8 py-3.5 rounded-full font-bold tracking-wider hover:shadow-xl transition-all hover:scale-105 text-xs sm:text-sm shadow-md"
               >
                 EXPLORE COLLECTION
               </button>
-              <Link to="/about" className="border-2 border-[#B76E79] text-[#B76E79] px-8 py-3.5 rounded-full font-medium hover:bg-[#B76E79] hover:text-white transition-all text-sm text-center">
+              <Link to="/about" className="border-2 border-[#B76E79] text-[#B76E79] px-8 py-3.5 rounded-full font-medium hover:bg-[#B76E79] hover:text-white transition-all text-xs sm:text-sm text-center">
                 OUR STORY
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute -inset-6 bg-gradient-to-br from-[#F5C6D0]/20 to-[#D4A574]/20 rounded-full blur-3xl"></div>
-            <img 
-              src="https://d64gsuwffb70l.cloudfront.net/690b3d9b7962829e8527bda2_1762344401762_8a1a409a.webp" 
-              alt="Traditional Fashion"
-              className="w-full relative z-10 rounded-2xl shadow-2xl"
-            />
+          <div className="relative flex-1 w-full max-w-lg md:max-w-none">
+            <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-br from-[#F5C6D0]/30 to-[#D4A574]/30 rounded-full blur-3xl opacity-50"></div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
+              <img
+                src="https://d64gsuwffb70l.cloudfront.net/690b3d9b7962829e8527bda2_1762344401762_8a1a409a.webp"
+                alt="Traditional Fashion"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -438,10 +445,10 @@ const AppLayout: React.FC = () => {
           <h2 className="text-4xl font-serif text-[#4A2C3D] mb-3">Shop by Category</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#B76E79] to-[#D4A574] rounded-full"></div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {CATEGORIES.map((cat) => (
-            <Link 
-              to={`/category/${cat.slug}`} 
+            <Link
+              to={`/category/${cat.slug}`}
               key={cat.slug}
               className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer"
             >
@@ -464,7 +471,7 @@ const AppLayout: React.FC = () => {
             <h2 className="text-4xl font-serif text-[#4A2C3D] mb-3">New Arrivals</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[#B76E79] to-[#D4A574] rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {PRODUCTS.slice(0, showAllProducts ? PRODUCTS.length : MAX_VISIBLE_PRODUCTS).map(product => (
               <ProductCard
                 key={product.id}
@@ -473,13 +480,13 @@ const AppLayout: React.FC = () => {
                 price={product.price}
                 colors={product.colors}
                 onAddToCart={() => addToCart(product)}
-                onClick={() => navigate(`/product/${product.id}`, { state: {product } })}
+                onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
               />
             ))}
           </div>
           {PRODUCTS.length > MAX_VISIBLE_PRODUCTS && (
             <div className="text-center mt-12">
-              <button 
+              <button
                 onClick={() => setShowAllProducts(!showAllProducts)}
                 className="border-2 border-[#B76E79] text-[#B76E79] px-8 py-3 rounded-full font-medium hover:bg-[#B76E79] hover:text-white transition-all inline-flex items-center gap-2"
               >
@@ -497,7 +504,7 @@ const AppLayout: React.FC = () => {
           <h2 className="text-4xl font-serif text-[#4A2C3D] mb-3">Trending Collections</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#B76E79] to-[#D4A574] rounded-full"></div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {PRODUCTS.concat(PRODUCTS).slice(0, MAX_VISIBLE_PRODUCTS).map((product, idx) => (
             <ProductCard
               key={`trending-${product.id}-${idx}`}
@@ -506,7 +513,7 @@ const AppLayout: React.FC = () => {
               price={product.price}
               colors={product.colors}
               onAddToCart={() => addToCart(product)}
-              onClick={() => navigate(`/product/${product.id}`, { state: {product } })}
+              onClick={() => navigate(`/product/${product.id}`, { state: { product } })}
             />
           ))}
         </div>
@@ -533,7 +540,30 @@ const AppLayout: React.FC = () => {
         isOpen={detailModalOpen}
         onClose={() => setDetailModalOpen(false)}
         product={selectedProduct}
-        onAddToCart={() => selectedProduct && addToCart(selectedProduct)}
+        onAddToCart={(p, s) => {
+          if (p) {
+            // Logic to add to cart with size
+            const cartKey = 'cart';
+            const raw = localStorage.getItem(cartKey) || '[]';
+            const items: any[] = JSON.parse(raw);
+            const existing = items.find(i => String(i.id) === String(p.id) && i.size === s);
+            if (existing) {
+              existing.quantity = (existing.quantity || 1) + 1;
+            } else {
+              items.push({
+                id: p.id,
+                name: p.title,
+                price: p.price,
+                quantity: 1,
+                image: p.image,
+                size: s,
+                color: p.colors?.[0] || ''
+              });
+            }
+            localStorage.setItem(cartKey, JSON.stringify(items));
+            window.dispatchEvent(new CustomEvent('cartChanged'));
+          }
+        }}
       />
     </div>
   );
