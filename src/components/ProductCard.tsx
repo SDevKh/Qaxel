@@ -1,10 +1,16 @@
 import React from 'react';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, ArrowDown } from 'lucide-react';
+
+const COLOR_CLASS_MAP: Record<string, string> = {
+  '#8C0C2F': 'bg-[#8C0C2F]',
+  '#D2B48C': 'bg-[#D2B48C]',
+};
 
 interface ProductCardProps {
   image: string;
   title: string;
   price: number;
+  originalPrice?: number;
   colors?: string[];
   onAddToCart: () => void;
   onClick: () => void;
@@ -14,6 +20,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   image, 
   title, 
   price, 
+  originalPrice,
   colors = [],
   onAddToCart,
   onClick 
@@ -39,14 +46,24 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 <span
                   key={i}
                   title={c}
-                  style={{ backgroundColor: c }}
-                  className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-gray-200 shadow-sm"
+                  className={`${COLOR_CLASS_MAP[c] ?? 'bg-gray-300'} w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-gray-200 shadow-sm`}
                 />
               ))}
             </div>
           )}
           <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 text-[#8B5E6B] font-bold line-clamp-1">{title}</h3>
-          <p className="font-serif font-bold text-base sm:text-xl mb-4 text-[#4A2C3D]">Rs. {price}</p>
+          <div className="flex items-center gap-3 mb-4 flex-wrap">
+            {originalPrice && originalPrice > price ? (
+              <div className="flex items-center gap-2 text-green-600 font-bold text-sm">
+                <ArrowDown size={14} />
+                <span>{Math.round(((originalPrice - price) / originalPrice) * 100)}%</span>
+              </div>
+            ) : null}
+            {originalPrice ? (
+              <span className="font-serif text-sm sm:text-base text-[#8B5E6B] line-through">Rs. {originalPrice}</span>
+            ) : null}
+            <p className="font-serif font-bold text-base sm:text-xl text-[#4A2C3D]">Rs. {price}</p>
+          </div>
         </div>
         <button
           onClick={(e) => {

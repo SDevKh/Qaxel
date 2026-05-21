@@ -27,6 +27,7 @@ export interface Product {
   galleryImages?: string[];
   title: string;
   price: number;
+  originalPrice?: number;
   description: string;
   details: string;
   colors?: string[];
@@ -38,124 +39,146 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     id: 1,
-    slug: 'black-ombre-lycra-skirt',
-    image: '/img/skirt1.jpg',
+    slug: 'pakistani-add-product',
+    image: '/img/pakistani (1).jpeg',
     galleryImages: [
-      '/img/skirt1-2.jpg',
-      '/img/skirt1.jpg'
+      '/img/pakistani (1).jpeg',
+      '/img/pakistani (3).jpeg',
+      '/img/pakistani (4).jpeg',
+      '/img/pakistani (5).jpeg',
+      '/img/pakistani (6).jpeg'
     ],
-    title: 'Black ombre lycraElegant',
-    price: 799,
+    title: 'Heavy Cotton Pakistani Salwar Kameez Cream Embroidered With Imported Silk Chex Dupatta',
+    price: 1949,
+    originalPrice: 3099,
     colors: [''],
     size: ['Free Size'],
-    description: 'Black ombre lycra skirt for women knee length',
-    reviewIds: ['r1', 'r2'],
-    details: `Stylish ombré gradient from grey to black
-              Elegant floral cutout detailing along the hem, Structured yet flowy lira fabric, Comfortable knee-length silhouette, Pleated design adds movement and shape, Versatile for casual and semi-dressy occasions
-              Occasion- Casual Wear, Day outings, Semi-formal gatherings, Brunch, cafe meetings, Smart casual office styling
+    description: 'Elegant Pakistani suit with stitched finishing and premium traditional detailing.',
+    reviewIds: [],
+    details: `Made from high-quality cotton and adorned with delicate embroidery, this cream salwar kameez from Pakistan is the epitome of elegance. The included imported silk chex dupatta adds a touch of luxury to this traditional ensemble.
 
-              Colour- Ombré Grey-Black
-              
-              Material- Lycra
-              
-              Length- Knee Length
-              
-              Type- Pleated`
+Dress Type : Semi-Stitched ( Free Size ) , XL-XXL (Full Stitched)
+Top Fabric : Heavy Cotton ( With Heavy Work Embroidery + Organza Foot Hill Work )
+Bottom : Semi Lawn 
+Dupatta : Imported Silk Chex ( With 2 Side Embroidery Work )
+Top Length : 46 Inch Max.
+Top Bust Size : 62 Inch Max.
+Bottom Size : 2.25 MTR
+Dupatta Size : 2.15 MTR
+Dress Work : Multicolor Embroidery Work + Good Looking Full Dress Work + Organza Foot Hill Work
+Wash : Only Dry Clean
+`
   },
   {
     id: 2,
-    slug: 'elegant-maxi-skirt',
-    image: '/img/skirt2.jpg',
+    slug: 'Spring-Summer-Muslin-Lawn',
+    image: '/img/muslin lawn (2).jpeg',
     galleryImages: [
-      '/img/skirt2.jpg',
-      '/img/skirt2-2.jpg',
-      '/img/skirt2-3.jpg',
-      '/img/skirt2.jpg'
+      '/img/muslin lawn (1).jpeg',
+      '/img/muslin lawn (2).jpeg',
+      '/img/muslin lawn (3).jpeg',
+      '/img/muslin lawn (4).jpeg',
+      '/img/muslin lawn (5).jpeg'
     ],
-    title: 'Elegant maxi',
-    price: 1199,
+    title: 'Spring Summer Muslin Lawn',
+    price: 1229,
+    originalPrice: 1999,
     colors: [''],
     size: ['Free Size'],
-    reviewIds: ['r3', 'r4'],
-    description: 'Elegant maxi women skirt trapezoidal pattern full length.',
-    details: ` Its timeless design makes it the perfect choice for many festive occasions. Made of high-quality materials, this dress has a smooth and pleasant-to-touch fabric that is not only comfortable and stretchable but also looks luxurious. 
-    Flattering High-Waist Fit: Designed to enhance the waistline and complement a wide range of body shapes. Unique Statement Piece: A standout addition to any wardrobe, perfect for women who love artistic and modern fashion. This is a dress that will always make you feel special and elegant.`
+    description: 'Spring Summer Muslin Lawn.',
+    reviewIds: [],
+    details: `Fabric:
+Capturing the essence of Mughal paisley design, our paste-printed shirt effortlessly complements a color block dupatta and dyed pants, exuding a touch of inspired elegance.
+
+Component Details (3 Piece) 	Measurement
+Paste Printed Front On Lawn	1.15 Meters
+Paste Printed Back On Lawn	1.15 Meters
+Paste Printed Sleeves On Lawn	0.65 Meters
+Embroidered Neck On Organza	 
+Embroidered Border On Organza	1 Meter
+Yarn Dyed Dupata	2.5 Meters
+Dyed Cotton Pants	1.75 Meters
+Size:
+Unstitched Fabric / Unstitched Dress Material
+Authenticity Guaranteed – 100% Original
+`
   },
   {
     id: 3,
-    slug: 'butterfly-pleated-two-piece-set',
-    image: '/img/skirt3.jpg',
+    slug: 'Spring-Summer-Muslin-Lawn',
+    image: '/img/summerlawn (1).jpeg',
     galleryImages: [
-      '/img/skirt3.jpg',
-      '/img/skirt3-1.jpg',
-      '/img/skirt3-2.jpg',
-      '/img/skirt3-4.jpg',
-      '/img/skirt3-5.jpg',
-      '/img/skirt5.jpg',
-      '/img/skirt5-1.jpg',
-      '/img/skirt5-2.jpg',
-      '/img/skirt5-3.jpg'
-    ],
-    title: 'Butterly pleated two piece set',
-    price: 1899,
-    colors: ['#8C0C2F', '#D2B48C'],
-    size: ['M-(30)', 'XXL(38)'],
-    reviewIds: ['r5', 'r6'],
-    description: 'Butterly pleated two piece set magic fabric for women/ skirt set/ long skirt ',
-    details: `Step into elegance with this stunning vibrant pink long-sleeve two peice set designed to make you stand out at any event. Featuring a high-neck stretchable and soft stretch knit fabric, and a beautifully detailed 3D ruffle waist design, this cord-set blends modern style with artistic charm.
-      Key Features
-      Vibrant Pink Color – Bold and elegant shade that stands out beautifully.
-      High-Neck stretchable Bodice – Creates a sleek, sophisticated look.
-      Long Sleeves – Perfect for year-round wear and added elegance.
-      3D Ruffle Waist Design – Unique sculpted details for a high-fashion touch.
-      Pleated Maxi Skirt – Flowing movement with a luxurious feel.
-      Floral Print Hem 
-      Comfortable Stretch Fabric – Soft, breathable, and easy to move in.
-      Size-:M(30)—xxl(38)
-      Color: beige and pink'`
+      '/img/summerlawn (1).jpeg',
+      '/img/muslin lawn (2).jpeg',
+      '/img/muslin lawn (3).jpeg',
+      '/img/muslin lawn (4).jpeg',
+      '/img/muslin lawn (5).jpeg'
+    ],  
+    title: 'Ombre starlet summer lawn pakistani suit',
+    price: 1589,
+    originalPrice: 2599,
+    colors: [''],
+    size: ['Free Size'],
+    description: 'Ombre starlet summer lawn pakistani suit',
+    reviewIds: [],
+    details: `Main Fabric: Lawn
+
+Dupatta Fabric: Chiffon
+
+Summary: Exude elegance in this stunning black Pakistani suit from Jade, beautifully modeled by Dananeer. This festive outfit features an exquisitely detailed kameez crafted from premium summer lawn, making it both breathable and chic for warmer seasons. The shirt is adorned with intricate Chikankari and laser kari embroidery, offering a rich texture and luxurious feel. The deep black hue makes this Pakistani dress a versatile choice for evening events and formal gatherings. As an elegant piece of ethnic wear, it's perfect for making a statement at Eid celebrations or as sophisticated party wear.
+
+Color: Black
+Fabric:
+3 MTRS EMBROIDERED CHIKANKARI & LASER KARI LAWN SHIRT
+2.5 MTRS DIGITAL PRINTED BAMBER CHIFFON DUPATTA
+2.5 MTRS DYED COTTTON TROUSER
+1 YARD ORGANZA CHIKANKARI EMBROIDERED SLEEVES BORDER
+1.7 YARDS ORGANZA CHIKANKARI EMBROIDERED FRONT & BACK DAMAN BORDER
+Size:
+Unstitched Fabric / Unstitched Dress Material
+Authenticity Guaranteed – 100% Original
+`
   },
   {
     id: 4,
-    slug: 'luxury-satin-skirt',
-    image: '/img/skirt4.jpg',
+    slug: 'Sea blue ombre starlet collection',
+    image: '/img/seablue (4).jpeg',
     galleryImages: [
-      '/img/skirt4.jpg',
-      '/img/skirt4-1.jpg',
-      '/img/skirt4-2.jpg',
-      '/img/skirt4-3.jpg',
-      '/img/skirt4-4.jpg'
-    ],
-    title: 'Luxury black and white satin skirt',
-    price: 699,
+      '/img/seablue (1).jpeg',
+      '/img/seablue (2).jpeg',
+      '/img/seablue (3).jpeg',
+      '/img/seablue (4).jpeg',
+      '/img/seablue (5).jpeg'
+    ],  
+    title: 'Ombre starlet summer lawn pakistani suit',
+    price: 1589,
+    originalPrice: 2599,
     colors: [''],
     size: ['Free Size'],
-    description: 'Luxury black and white satin skirt with pearl embellishments for women for every ocassion.',
-    details: `🖤 Elegant Bi-Color Pearl-Embellished A-Line Midi Skirt/n 🤍
-📝 Product Description
+    description: 'Ombre starlet summer lawn pakistani suit',
+    reviewIds: [],
+    details: `Type - Unstitched 
 
-Step out in timeless sophistication with this exquisite Bi-Color A-Line Midi Skirt. Featuring a striking contrast of classic black and crisp white, this skirt is a true statement piece. The design boasts a unique diagonal seam that transitions seamlessly from the satin black upper half to the flowing white lower half.
+Fabric Details : 
 
-Key Features & Benefits (For Product Listings)
+Embroidered Chikankari Lawn Shirt - 3 meter 
 
-Striking Bi-Color Design: Bold black and white contrast with a unique diagonal/asymmetrical color block pattern.
+Digital printed bamber chiffon duppatta - 2.5 meter 
 
-Luxury Pearl Embellishments: Delicate, scattered pearl accents provide an upscale, glamorous, and textured finish.
+Dyed cotton trouser - 2.5 meter 
 
-Flattering A-Line Silhouette: High-waisted midi length (or calf-length) that drapes beautifully and suits all body types.
+Organza embroidered sleeves border - 1 yard 
 
-High-Quality Fabric: Smooth, elegant satin or silk-blend material offers a luxurious look and feel with a beautiful movement.
-
-Versatile Styling: Ideal for formal occasions, weddings, galas, parties, or stylish semi-formal daily wear.
-
+Organza embroidered front and back Daman border - 1.7 yards
 `
   }
 ];
 
 const CATEGORIES = [
-  { name: 'Pakistani Suits', slug: 'pakistani-suits', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=500&fit=crop', desc: 'Elegant Pakistani-style suits with intricate embroidery' },
-  { name: 'Daily Wear', slug: 'daily-wear', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop', desc: 'Comfortable and stylish everyday outfits' },
-  { name: 'Cotton Collection', slug: 'cotton', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=500&fit=crop', desc: 'Breathable pure cotton ethnic wear' },
-  { name: 'Anarkali', slug: 'anarkali', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&h=500&fit=crop', desc: 'Timeless Anarkali suits for festive occasions' },
+  { name: 'Pakistani Suits', slug: 'pakistani-suits', image: '/img/pakistani (1).jpeg', desc: 'Elegant Pakistani-style suits with intricate embroidery' },
+  { name: 'Daily Wear', slug: 'daily-wear', image: '/img/seablue (1).jpeg', desc: 'Comfortable and stylish everyday outfits' },
+  { name: 'Cotton Collection', slug: 'cotton', image: '/img/cotton (1).jpeg', desc: 'Breathable pure cotton ethnic wear' },
+  { name: 'Anarkali', slug: 'anarkali', image: '/img/anarkali (1).jpeg', desc: 'Timeless Anarkali suits for festive occasions' },
 ];
 
 const MAX_VISIBLE_PRODUCTS = 4;
@@ -361,7 +384,7 @@ const AppLayout: React.FC = () => {
                   onClick={() => setMenuOpen((s) => !s)}
                   className="flex items-center gap-2 focus:outline-none"
                   aria-haspopup="menu"
-                  aria-expanded={menuOpen}
+                  aria-expanded={menuOpen ? 'true' : 'false'}
                 >
                   <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#B76E79] to-[#D4A574] flex items-center justify-center text-white text-sm font-bold">
                     {(user.displayName ?? user.email?.split('@')[0])?.charAt(0)?.toUpperCase()}
@@ -432,7 +455,7 @@ const AppLayout: React.FC = () => {
             <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-br from-[#F5C6D0]/30 to-[#D4A574]/30 rounded-full blur-3xl opacity-50"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
-                src="https://d64gsuwffb70l.cloudfront.net/690b3d9b7962829e8527bda2_1762344401762_8a1a409a.webp"
+                src="/img/muslin lawn (2).jpeg"
                 alt="Traditional Fashion"
                 className="w-full h-full object-cover"
               />
@@ -483,6 +506,7 @@ const AppLayout: React.FC = () => {
                 image={product.image}
                 title={product.title}
                 price={product.price}
+                originalPrice={product.originalPrice}
                 colors={product.colors}
                 onAddToCart={() => addToCart(product)}
                 onClick={() => navigate(`/product/${product.slug}`, { state: { product } })}
@@ -516,6 +540,7 @@ const AppLayout: React.FC = () => {
               image={product.image}
               title={product.title}
               price={product.price}
+              originalPrice={product.originalPrice}
               colors={product.colors}
               onAddToCart={() => addToCart(product)}
               onClick={() => navigate(`/product/${product.slug}`, { state: { product } })}

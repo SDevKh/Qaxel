@@ -44,7 +44,7 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
           </div>
 
           <div className="relative rounded-2xl overflow-hidden mb-20">
-            <img src="https://d64gsuwffb70l.cloudfront.net/690b3d9b7962829e8527bda2_1762344401762_8a1a409a.webp" className="w-full h-[50vh] object-cover" alt="Background" />
+            <img src="/img/muslin lawn (1).jpeg" className="w-full h-[50vh] object-cover" alt="Background" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#4A2C3D]/90 to-[#4A2C3D]/30 flex items-center justify-center">
               <div className="text-center px-6">
                 <h3 className="text-3xl md:text-5xl font-serif text-white mb-4">Timeless Craftsmanship</h3>

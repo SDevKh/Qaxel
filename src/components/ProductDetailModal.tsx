@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ShoppingCart, Check, Info } from 'lucide-react';
+import { X, ShoppingCart, Check, Info, ArrowDown } from 'lucide-react';
 
 interface ProductDetailModalProps {
   isOpen: boolean;
@@ -9,6 +9,7 @@ interface ProductDetailModalProps {
     image: string;
     title: string;
     price: number;
+    originalPrice?: number;
     description: string;
     details?: string;
     size?: string[];
@@ -44,7 +45,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
       
       <div className="relative bg-white w-full max-w-4xl max-h-full overflow-y-auto rounded-3xl shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col md:flex-row">
         {/* Close Button Mobile */}
-        <button onClick={onClose} className="absolute top-4 right-4 z-20 p-2 bg-white/80 backdrop-blur-md rounded-full shadow-lg md:hidden">
+        <button aria-label="Close product preview" onClick={onClose} className="absolute top-4 right-4 z-20 p-2 bg-white/80 backdrop-blur-md rounded-full shadow-lg md:hidden">
           <X size={20} className="text-[#4A2C3D]" />
         </button>
 
@@ -58,7 +59,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-between">
           <div>
             <div className="hidden md:flex justify-end mb-4">
-              <button onClick={onClose} className="p-2 hover:bg-[#FFF0F3] rounded-full transition-colors text-[#8B5E6B]">
+              <button aria-label="Close product preview" onClick={onClose} className="p-2 hover:bg-[#FFF0F3] rounded-full transition-colors text-[#8B5E6B]">
                 <X size={24} />
               </button>
             </div>
@@ -66,7 +67,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             <p className="text-xs uppercase tracking-[0.3em] text-[#B76E79] font-bold mb-2">Quick View</p>
             <h2 className="text-3xl font-serif font-bold text-[#4A2C3D] mb-4">{product.title}</h2>
             
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-6 flex-wrap">
+              {product.originalPrice && product.originalPrice > product.price ? (
+                <div className="flex items-center gap-2 text-green-600 font-bold text-sm">
+                  <ArrowDown size={16} />
+                  <span>{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%</span>
+                </div>
+              ) : null}
+              {product.originalPrice ? (
+                <span className="text-lg text-[#8B5E6B] line-through">Rs. {product.originalPrice}</span>
+              ) : null}
               <span className="text-2xl font-bold text-[#B76E79]">Rs. {product.price}</span>
               <span className="text-xs text-[#8B5E6B] bg-[#FFF0F3] px-2 py-1 rounded-md font-medium">In Stock</span>
             </div>
