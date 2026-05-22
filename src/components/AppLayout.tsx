@@ -270,7 +270,7 @@ _🎗️Dupatta :-MASLIN COTTON WITH DIGITAL PRINT
     price: 1499,
     originalPrice: 2490,
     colors: [''],
-    size: ['M','3XL'],
+    size: ['M', 'L', 'XL', 'XXL' ,'3XL'],
     description: 'Women tie & dye cotton straight shape kurta pant with duppata',
     reviewIds: [],
     details: `Elevate your ethnic style with this Tie & Dye Cotton Straight Kurta Set. Featuring a V-neckline, pin tucks at the front, and delicate handwork detailing, this kurta is both elegant and comfortable. The 3/4th regular sleeves and calf-length straight silhouette make it perfect for everyday wear or festive occasions. Complete the look with matching pants and a coordinated dupatta for a stylish, put-together ensemble.
@@ -308,7 +308,7 @@ Occasion: Casual, Festive, or Office Wear
     price: 1590,
     originalPrice: 2490,
     colors: [''],
-    size: ['M','3XL'],
+    size: ['M', 'L', 'XL', 'XXL' ,'3XL'],
     description: 'WOMAN V-NECK HAND BRUSH PAINTED CORD SET',
     reviewIds: [],
     details: `Designed in premium cotton shaded A-line fabric, this outfit blends comfort with artistic charm. The V-neckline with tassels adds a stylish touch, while the subtle brush-paint texture enhances its contemporary appeal. Paired with a straight-fit pant, this set is perfect for festive gatherings, casual outings, or day-to-day chic styling.
