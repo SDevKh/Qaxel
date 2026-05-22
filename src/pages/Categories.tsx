@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CATEGORIES = [
   { name: 'Pakistani Suits', slug: 'pakistani-suits', image: '', desc: 'Elegant Pakistani-style suits featuring intricate embroidery, rich fabrics, and timeless silhouettes perfect for every occasion.' },
+  { name: 'Pakistani Dresses', slug: 'pakistani-dresses', image: '/img/pakistani (1).jpeg', desc: 'Traditional and contemporary Pakistani dresses including lawn, chiffon, and formal wear.' },
   { name: 'Daily Wear', slug: 'daily-wear', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=700&fit=crop', desc: 'Comfortable yet stylish everyday kurtas and suits that keep you looking effortlessly chic.' },
   { name: 'Cotton Collection', slug: 'cotton', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=700&fit=crop', desc: 'Breathable pure cotton ethnic wear ideal for summer and daily comfort with traditional charm.' },
   { name: 'Anarkali', slug: 'anarkali', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=700&fit=crop', desc: 'Timeless Anarkali suits with flowing silhouettes, perfect for weddings, festivals, and celebrations.' },

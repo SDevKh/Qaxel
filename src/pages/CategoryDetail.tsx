@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { PRODUCTS } from '../components/AppLayout';
+import { ProductCard } from '../components/ProductCard';
 
 const CATEGORY_INFO: Record<string, { name: string; desc: string }> = {
   'pakistani-suits': { name: 'Pakistani Suits', desc: 'Discover our exquisite collection of Pakistani-style suits featuring intricate embroidery and rich fabrics.' },
+  'pakistani-dresses': { name: 'Pakistani Dresses', desc: 'Explore our curated selection of Pakistani dresses including lawn, chiffon, formal and casual styles.' },
   'daily-wear': { name: 'Daily Wear', desc: 'Comfortable and stylish everyday kurtas and suits for the modern woman.' },
   'cotton': { name: 'Cotton Collection', desc: 'Breathable pure cotton ethnic wear ideal for every season.' },
   'anarkali': { name: 'Anarkali', desc: 'Timeless Anarkali suits with flowing silhouettes for festive occasions.' },
@@ -35,17 +38,11 @@ const CategoryDetail: React.FC = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-[#B76E79] to-[#D4A574] rounded-full mx-auto mt-6"></div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 py-20 text-center">
-          <div className="bg-white rounded-2xl shadow-md p-12 border border-[#F5C6D0]/20">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#F5C6D0] to-[#D4A574] flex items-center justify-center">
-              <span className="text-3xl">✨</span>
-            </div>
-            <h3 className="text-2xl font-serif text-[#4A2C3D] mb-4">Coming Soon</h3>
-            <p className="text-[#8B5E6B] mb-8 max-w-md mx-auto">We're curating the finest pieces for the {info.name} collection. Stay tuned for stunning designs crafted just for you.</p>
-            <Link to="/" className="inline-block bg-gradient-to-r from-[#B76E79] to-[#D4A574] text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all">
-              Back to Home
-            </Link>
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <p className="text-sm text-[#8B5E6B]">{info.desc}</p>
           </div>
+          <CategoryProductsSection slug={slug || ''} />
         </div>
       </main>
     </>
@@ -53,3 +50,48 @@ const CategoryDetail: React.FC = () => {
 };
 
 export default CategoryDetail;
+
+const CategoryProductsSection: React.FC<{ slug: string }> = ({ slug }) => {
+  const navigate = useNavigate();
+  const key = slug.toLowerCase();
+  // show products for pakistani categories
+  const products = (key === 'pakistani-suits' || key === 'pakistani-dresses')
+    ? PRODUCTS.filter(p => /pakistan|pakistani/i.test(p.title) || /pakistan/i.test(p.slug))
+    : [];
+
+  if (products.length === 0) {
+    return (
+      <div className="max-w-5xl mx-auto px-6 py-20 text-center">
+        <div className="bg-white rounded-2xl shadow-md p-12 border border-[#F5C6D0]/20">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#F5C6D0] to-[#D4A574] flex items-center justify-center">
+            <span className="text-3xl">✨</span>
+          </div>
+          <h3 className="text-2xl font-serif text-[#4A2C3D] mb-4">Coming Soon</h3>
+          <p className="text-[#8B5E6B] mb-8 max-w-md mx-auto">We're curating the finest pieces for this collection. Stay tuned for stunning designs crafted just for you.</p>
+          <Link to="/" className="inline-block bg-gradient-to-r from-[#B76E79] to-[#D4A574] text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all">
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {products.map(p => (
+          <ProductCard
+            key={p.id}
+            image={p.image}
+            title={p.title}
+            price={p.price}
+            originalPrice={p.originalPrice}
+            colors={p.colors}
+            onAddToCart={() => navigate(`/product/${p.slug}`, { state: { product: p } })}
+            onClick={() => navigate(`/product/${p.slug}`, { state: { product: p } })}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};

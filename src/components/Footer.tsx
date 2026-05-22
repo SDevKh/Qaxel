@@ -18,8 +18,8 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <h3 className="font-bold mb-6 text-[#D4A574] uppercase tracking-wider text-xs">Customer Service</h3>
-            <p className="text-sm mb-2 opacity-80">Email: support@pardesinaari.com</p>
-            <p className="text-sm mb-2 opacity-80">Phone: +91 7665771186</p>
+            <p className="text-sm mb-2 opacity-80">Email: pardesinaari22@yahoo.com</p>
+            <p className="text-sm mb-2 opacity-80">Phone: +91 8433548637</p>
             <p className="text-sm opacity-80">Mon - Sun, 9:00 AM - 7:00 PM</p>
           </div>
           <div>
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-          <p className="text-xs opacity-50 mb-4 md:mb-0">© 2025 Pardesi Naari. All rights reserved.</p>
+          <p className="text-xs opacity-50 mb-4 md:mb-0">© 2026 Pardesi Naari. All rights reserved.</p>
           <div className="flex gap-4">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="Mastercard" className="h-5 opacity-60 hover:opacity-100 transition-all" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-5 opacity-60 hover:opacity-100 transition-all" />

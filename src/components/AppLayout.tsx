@@ -109,10 +109,9 @@ Authenticity Guaranteed – 100% Original
     image: '/img/summerlawn (1).jpeg',
     galleryImages: [
       '/img/summerlawn (1).jpeg',
-      '/img/muslin lawn (2).jpeg',
-      '/img/muslin lawn (3).jpeg',
-      '/img/muslin lawn (4).jpeg',
-      '/img/muslin lawn (5).jpeg'
+      '/img/summerlawn (2).jpeg',
+      '/img/summerlawn (3).jpeg',
+      '/img/summerlawn (4).jpeg',
     ],  
     title: 'Ombre starlet summer lawn pakistani suit',
     price: 1589,
@@ -171,14 +170,169 @@ Organza embroidered sleeves border - 1 yard
 
 Organza embroidered front and back Daman border - 1.7 yards
 `
+  },
+  {
+    id: 5,
+    slug: 'Lime lawn pakistani suit',
+    image: '/img/lime (3).jpeg',
+    galleryImages: [
+      '/img/lime (1).jpeg',
+      '/img/lime (2).jpeg',
+      '/img/lime (3).jpeg'
+    ],  
+    title: 'Lime lawn pakistani suit',
+    price: 1299,
+    originalPrice: 2499,
+    colors: [''],
+    size: ['Free Size'],
+    description: 'Lime lawn pakistani suit',
+    reviewIds: [],
+    details: `Color: Green
+Shirt
+Printed Lawn Shirt
+Embroidered Neckline
+Trouser
+Dyed Cambric Trouser
+Dupatta
+Printed Chiffon Dupatta
+Note: Dry Clean Only
+`
+  },
+  {
+    id: 6,
+    slug: 'Embridered english colour pakistani suit',
+    image: '/img/english (5).jpeg',
+    galleryImages: [
+      '/img/english (1).jpeg',
+      '/img/english (2).jpeg',
+      '/img/english (3).jpeg',
+      '/img/english (4).jpeg',
+      '/img/english (5).jpeg'
+    ],  
+    title: 'embridered english colour pakistani suit',
+    price: 2079,
+    originalPrice: 3999,
+    colors: [''],
+    size: ['Free Size'],
+    description: 'embridered english colour pakistani suit',
+    reviewIds: [],
+    details: `op - Pure cotton with heavy self embroidery attached emb patches & Lazor cutwork
+
+Bot - cotton solid
+
+DUP-:Pure cotton mal mal with embroidery
+
+DUP-:Chiffon print with embroidery
+`
+  },
+  {
+    id: 7,
+    slug: 'Embriodered pure cotton pakistani suit',
+    image: '/img/cotton (3).jpeg',
+    galleryImages: [
+      '/img/cotton (1).jpeg',
+      '/img/cotton (2).jpeg',
+      '/img/cotton (3).jpeg',
+      '/img/cotton (4).jpeg',
+      '/img/cotton (5).jpeg',
+      '/img/cotton (6).jpeg',
+      '/img/cotton (7).jpeg',
+      '/img/cotton (8).jpeg',
+      '/img/cotton (9).jpeg',
+      '/img/cotton (10).jpeg'
+    ],  
+    title: 'Embriodered pure cotton pakistani suit',
+    price: 1999,
+    originalPrice: 3599,
+    colors: [''],
+    size: ['Free Size'],
+    description: 'Embriodered pure cotton pakistani suit',
+    reviewIds: [],
+    details: `_👗Top :-CAMBRIC COTTON WITH HEAVY EMBROIDERY WORK
+
+_🎗️Dupatta :-MASLIN COTTON WITH DIGITAL PRINT 
+
+👖Bottom :- CAMBRIC COTTON      unstitched piece
+`
+  },
+  {
+    id: 8,
+    slug: 'Women tie & dye cotton straight shape kurta pant with duppata',
+    image: '/img/straight (5).jpeg',
+    galleryImages: [
+      '/img/staright (1).jpeg',
+      '/img/staright (2).jpeg',
+      '/img/staright (3).jpeg',
+      '/img/staright (4).jpeg',
+      '/img/staright (5).jpeg'
+    ],  
+    title: 'Women tie & dye cotton straight shape kurta pant with duppata ',
+    price: 1499,
+    originalPrice: 2490,
+    colors: [''],
+    size: ['M','3XL'],
+    description: 'Women tie & dye cotton straight shape kurta pant with duppata',
+    reviewIds: [],
+    details: `Elevate your ethnic style with this Tie & Dye Cotton Straight Kurta Set. Featuring a V-neckline, pin tucks at the front, and delicate handwork detailing, this kurta is both elegant and comfortable. The 3/4th regular sleeves and calf-length straight silhouette make it perfect for everyday wear or festive occasions. Complete the look with matching pants and a coordinated dupatta for a stylish, put-together ensemble.
+Features:
+Fabric: 100% Cotton
+
+Pattern: Tie & Dye
+
+Neckline: V Neck
+
+Sleeves: 3/4 Regular, 
+Design: Front Pin Tucks & Handwork
+
+Length: Calf Length
+
+Fit: Straight Shape
+Set Includes: Kurta, Pant & Dupatta
+
+Occasion: Casual, Festive, or Office Wear
+    `
+  },
+  {
+    id: 8,
+    slug: 'WOMAN V-NECK HAND BRUSH PAINTED CORD SET',
+    image: '/img/vnech (2).jpeg',
+    galleryImages: [
+      '/img/vnech (1).jpeg',
+      '/img/vnech (2).jpeg',
+      '/img/vnech (3).jpeg',
+      '/img/vnech (4).jpeg',
+      '/img/vnech (5).jpeg',
+      '/img/vnech (6).jpeg'
+    ],  
+    title: 'WOMAN V-NECK HAND BRUSH PAINTED CORD SET',
+    price: 1590,
+    originalPrice: 2490,
+    colors: [''],
+    size: ['M','3XL'],
+    description: 'WOMAN V-NECK HAND BRUSH PAINTED CORD SET',
+    reviewIds: [],
+    details: `Designed in premium cotton shaded A-line fabric, this outfit blends comfort with artistic charm. The V-neckline with tassels adds a stylish touch, while the subtle brush-paint texture enhances its contemporary appeal. Paired with a straight-fit pant, this set is perfect for festive gatherings, casual outings, or day-to-day chic styling.
+
+ 
+
+ Key Features
+Premium Cotton Fabric – Soft, breathable, and perfect for all-day comfort.
+Artistic Brush-Paint Texture – Hand-painted effect adds a unique.
+Stylish V-Neckline with Tassels – Enhances the feminine and elegant look.
+A-Line Kurta Design – Flattering silhouette suitable for all body shapes.
+Straight-Fit Pants – Gives a clean and modern finish to the outfit.
+Vibrant Orange Shade – Perfect for festive and casual occasions.
+Lightweight & Easy to Wear – Ideal for everyday wear and travel.
+Perfect Coordination – Designed as a complete cord set for ready-to-wear effortless style.
+    `
   }
 ];
 
 const CATEGORIES = [
   { name: 'Pakistani Suits', slug: 'pakistani-suits', image: '/img/pakistani (1).jpeg', desc: 'Elegant Pakistani-style suits with intricate embroidery' },
-  { name: 'Daily Wear', slug: 'daily-wear', image: '/img/seablue (1).jpeg', desc: 'Comfortable and stylish everyday outfits' },
+  { name: 'Daily Wear', slug: 'daily-wear', image: '/img/vnech (2).jpeg', desc: 'Comfortable and stylish everyday outfits' },
   { name: 'Cotton Collection', slug: 'cotton', image: '/img/cotton (1).jpeg', desc: 'Breathable pure cotton ethnic wear' },
-  { name: 'Anarkali', slug: 'anarkali', image: '/img/anarkali (1).jpeg', desc: 'Timeless Anarkali suits for festive occasions' },
+  { name: 'Anarkali', slug: 'anarkali', image: '/img/lime (1).jpeg', desc: 'Timeless Anarkali suits for festive occasions' },
 ];
 
 const MAX_VISIBLE_PRODUCTS = 4;
@@ -455,7 +609,7 @@ const AppLayout: React.FC = () => {
             <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-br from-[#F5C6D0]/30 to-[#D4A574]/30 rounded-full blur-3xl opacity-50"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
-                src="/img/muslin lawn (2).jpeg"
+                src='/img/summerlawn (4).jpeg'
                 alt="Traditional Fashion"
                 className="w-full h-full object-cover"
               />
