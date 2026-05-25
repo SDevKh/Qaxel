@@ -25,10 +25,23 @@ try {
   console.error("Firebase initialization failed:", error);
 }
 
-// Export services even if app fails, to prevent crash during import, 
-// though they will be non-functional if app is null.
-export const auth = app ? getAuth(app) : ({} as any);
-export const db = app ? getFirestore(app) : ({} as any);
-export const analytics = app && typeof window !== 'undefined' ? getAnalytics(app) : null;
+// Export services safely even if app initialization fails or throws
+let auth: any = {} as any;
+let db: any = {} as any;
 
+if (app) {
+  try {
+    auth = getAuth(app);
+  } catch (error) {
+    console.error("Firebase getAuth failed:", error);
+  }
+  try {
+    db = getFirestore(app);
+  } catch (error) {
+    console.error("Firebase getFirestore failed:", error);
+  }
+}
+
+export const analytics = app && typeof window !== 'undefined' ? getAnalytics(app) : null;
+export { auth, db };
 export default app;

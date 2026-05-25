@@ -22,6 +22,7 @@ import Discalimer from "./pages/Discalimer";
 import ProductDetails from "./pages/ProductDetails";
 import Categories from "./pages/Categories";
 import CategoryDetail from "./pages/CategoryDetail";
+import AdminPortal from "./pages/AdminPortal";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/product/:slug" element={<ProductDetails />} />
             <Route path="/account-settings" element={<AccountSettings />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/admin" element={<AdminPortal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

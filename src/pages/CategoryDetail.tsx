@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { PRODUCTS } from '../components/AppLayout';
+import { useProducts } from '../lib/products';
 import { ProductCard } from '../components/ProductCard';
 
 const CATEGORY_INFO: Record<string, { name: string; desc: string }> = {
@@ -53,13 +53,24 @@ export default CategoryDetail;
 
 const CategoryProductsSection: React.FC<{ slug: string }> = ({ slug }) => {
   const navigate = useNavigate();
+  const { products } = useProducts();
   const key = slug.toLowerCase();
-  // show products for pakistani categories
-  const products = (key === 'pakistani-suits' || key === 'pakistani-dresses')
-    ? PRODUCTS.filter(p => /pakistan|pakistani/i.test(p.title) || /pakistan/i.test(p.slug))
-    : [];
+  
+  // Categorize products dynamically
+  let categoryProducts = [];
+  if (key === 'pakistani-suits' || key === 'pakistani-dresses') {
+    categoryProducts = products.filter(p => /pakistan/i.test(p.title) || /pakistan/i.test(p.slug) || (p as any).category === 'pakistani-suits');
+  } else if (key === 'daily-wear') {
+    categoryProducts = products.filter(p => /v-neck|brush paint|daily|cord set|kurta/i.test(p.title) || /vnech|straight|cord/i.test(p.slug) || (p as any).category === 'daily-wear');
+  } else if (key === 'cotton') {
+    categoryProducts = products.filter(p => /cotton/i.test(p.title) || /cotton/i.test(p.details) || /cotton/i.test(p.slug) || (p as any).category === 'cotton');
+  } else if (key === 'anarkali') {
+    categoryProducts = products.filter(p => /anarkali/i.test(p.title) || /anarkali/i.test(p.details) || /anarkali/i.test(p.slug) || (p as any).category === 'anarkali');
+  } else {
+    categoryProducts = products.filter(p => p.slug === slug || (p as any).category === slug);
+  }
 
-  if (products.length === 0) {
+  if (categoryProducts.length === 0) {
     return (
       <div className="max-w-5xl mx-auto px-6 py-20 text-center">
         <div className="bg-white rounded-2xl shadow-md p-12 border border-[#F5C6D0]/20">
@@ -79,7 +90,7 @@ const CategoryProductsSection: React.FC<{ slug: string }> = ({ slug }) => {
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map(p => (
+        {categoryProducts.map(p => (
           <ProductCard
             key={p.id}
             image={p.image}

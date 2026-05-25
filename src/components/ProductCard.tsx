@@ -40,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </div>
       <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
         <div>
-          {colors.length > 0 && colors[0] !== '' && (
+          {Array.isArray(colors) && colors.length > 0 && colors[0] !== '' && (
             <div className="flex gap-1.5 mb-3">
               {colors.map((c, i) => (
                 <span

@@ -2,7 +2,7 @@
 import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import { toast } from '@/components/ui/use-toast';
-import { PRODUCTS } from '../components/AppLayout';
+import { useProducts } from '../lib/products';
 import ReviewsSection, { initialReviews } from '../components/ReviewsSection';
 import { PageNav } from '../components/PageNav';
 import { Footer } from '../components/Footer';
@@ -84,6 +84,7 @@ const FeatureBadge: React.FC<{ label: string }> = ({ label }) => (
 
 const ProductDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { products } = useProducts();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string>('');
@@ -133,7 +134,7 @@ const ProductDetailPage: React.FC = () => {
       }
 
       if (slug) {
-        const found = (PRODUCTS as any[]).find(p => p.slug === slug);
+        const found = (products as any[]).find(p => p.slug === slug);
         if (found) {
           const galleryNorm = Array.isArray(found.galleryImages)
             ? found.galleryImages.map((g: any) =>
@@ -178,7 +179,7 @@ const ProductDetailPage: React.FC = () => {
     };
 
     fetchProduct();
-  }, [slug, location]);
+  }, [slug, location, products]);
 
   useEffect(() => {
     if (product) {
