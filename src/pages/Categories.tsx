@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PageNav } from '../components/PageNav';
 
 const CATEGORIES = [
   { name: 'Pakistani Suits', slug: 'pakistani-suits', image: '', desc: 'Elegant Pakistani-style suits featuring intricate embroidery, rich fabrics, and timeless silhouettes perfect for every occasion.' },
@@ -12,17 +13,7 @@ const CATEGORIES = [
 const Categories: React.FC = () => {
   return (
     <>
-      <nav className="bg-white/90 backdrop-blur-md border-b border-[#F5C6D0]/40 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/" className="flex flex-col">
-            <span className="text-2xl font-serif font-bold bg-gradient-to-r from-[#B76E79] to-[#D4A574] bg-clip-text text-transparent">Pardesi Naari</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#B76E79] -mt-0.5 font-medium italic">For Her · By Her · With Her</span>
-          </Link>
-          <div className="flex items-center gap-6">
-            <Link to="/" className="text-[#4A2C3D] hover:text-[#B76E79] font-medium transition-colors text-sm">Home</Link>
-          </div>
-        </div>
-      </nav>
+      <PageNav subtitle="Categories" />
 
       <main className="min-h-screen bg-[#FFF8F5]">
         <div className="bg-gradient-to-br from-[#FFF0F3] via-[#FFF8F5] to-[#FFF0E8] py-16 text-center">
