@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,42 +25,62 @@ import Categories from "./pages/Categories";
 import CategoryDetail from "./pages/CategoryDetail";
 import AdminPortal from "./pages/AdminPortal";
 import { Analytics } from "@vercel/analytics/react";
+import WebGPULanding from "@/components/WebGPULanding";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <ThemeProvider defaultTheme="light">
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <Analytics />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/category/:slug" element={<CategoryDetail />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/shipping" element={<Shipping />} />
-            <Route path="/return" element={<Return />} />
-            <Route path="/privacypolicy" element={<Privacypolicy />} />
-            <Route path="/cancellation" element={<Cancellation />} />
-            <Route path="/FAQ" element={<FAQ />} />
-            <Route path="/discalimer" element={<Discalimer />} />
-            <Route path="/product/:slug" element={<ProductDetails />} />
-            <Route path="/account-settings" element={<AccountSettings />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/admin" element={<AdminPortal />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ThemeProvider>
-);
+const App = () => {
+  const [showLanding, setShowLanding] = useState(() => {
+    try {
+      return !sessionStorage.getItem("intro_shown");
+    } catch (e) {
+      return true;
+    }
+  });
+
+  const handleLandingComplete = () => {
+    setShowLanding(false);
+    try {
+      sessionStorage.setItem("intro_shown", "true");
+    } catch (e) {}
+  };
+
+  return (
+    <ThemeProvider defaultTheme="light">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Analytics />
+          {showLanding && <WebGPULanding onComplete={handleLandingComplete} />}
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/category/:slug" element={<CategoryDetail />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/shipping" element={<Shipping />} />
+              <Route path="/return" element={<Return />} />
+              <Route path="/privacypolicy" element={<Privacypolicy />} />
+              <Route path="/cancellation" element={<Cancellation />} />
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/discalimer" element={<Discalimer />} />
+              <Route path="/product/:slug" element={<ProductDetails />} />
+              <Route path="/account-settings" element={<AccountSettings />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/admin" element={<AdminPortal />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
+  );
+};
 
 export default App;
+
